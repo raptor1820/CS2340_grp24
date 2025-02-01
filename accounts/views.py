@@ -15,7 +15,7 @@ def signup(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home.index')
+            return redirect('movies.index')
         else:
             template_data['form'] = form
             return render(request, 'accounts/signup.html',
@@ -34,14 +34,14 @@ def login(request):
             password = request.POST['password']
         )
         if user is None:
-            template_data['error'] ='The username or password is incorrect.'
+            template_data['error'] ='Either the username or the password is incorrect.'
             return render(request, 'accounts/login.html',
                 {'template_data': template_data})
         else:
             user_login(request, user)
-            return redirect('home.index')
+            return redirect('movies.index')
         
 @login_required
 def logout(request):
     user_logout(request) 
-    return redirect('home.index')
+    return redirect('movies.index')
