@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Movie
 
 #Movies is a list of dictionaries, every movie in movies should have:
 #an integer id, name, price, and description at minimum
@@ -7,6 +8,12 @@ movies = []
 
 #Renders the movies/index.html template
 def index(request):
+    searchTerm = request.GET.get('search')
+    if searchTerm:
+        movies = Movie.objects.filter(name_icontains=searchTerm)
+    else:
+        movies = Movie.objects.all()
+
     templateData = {}
     templateData['title'] = 'Movies'
     templateData['movies'] = movies
@@ -15,8 +22,8 @@ def index(request):
 #Grab movie with associated id from list, pass
 #that movie's name and id to movies/show.html template
 def show(request, id):
-    movie = movies[id - 1]
+    movie = Movie.objects.get(id=id)
     templateData = {}
-    templateData['title'] = movie['name']
+    templateData['title'] = movie.name
     templateData['movie'] = movie
     return render(request, 'movies/show.html', {'template_data': templateData})
