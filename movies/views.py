@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import Movie
 
 #Movies is a list of dictionaries, every movie in movies should have:
@@ -18,6 +19,10 @@ def index(request):
     templateData['title'] = 'Movies'
     templateData['movies'] = movies
     return render(request, 'movies/index.html', {'template_data': templateData})
+
+def about(request):
+    return HttpResponse("About us")
+
 
 #Grab movie with associated id from list, pass
 #that movie's name and id to movies/show.html template
