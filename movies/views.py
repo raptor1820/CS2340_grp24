@@ -1,11 +1,6 @@
 from django.shortcuts import render
 from movies.models import Movie
 
-#Movies is a list of dictionaries, every movie in movies should have:
-#an integer id, name, price, and description at minimum
-
-movies = []
-
 #Renders the movies/index.html template
 def index(request):
     searchTerm = request.GET.get('search')
