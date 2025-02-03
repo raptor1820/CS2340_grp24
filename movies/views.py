@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from .models import Movie
+from movies.models import Movie
+
+#Movies is a list of dictionaries, every movie in movies should have:
+#an integer id, name, price, and description at minimum
+
+movies = []
 
 #Renders the movies/index.html template
 def index(request):
