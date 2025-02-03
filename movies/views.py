@@ -1,3 +1,4 @@
+from movies.models import Movie
 from django.shortcuts import render
 from movies.models import Movie
 

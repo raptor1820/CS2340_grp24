@@ -15,7 +15,7 @@ def sign_up(request):
         form = CustomUserCreationForm(request.POST, error_class=CustomErrorList)
         if form.is_valid():
             form.save()
-            return redirect('movies.index')
+            return redirect('home.index')
         else:
             template_data['form'] = form
             return render(request, 'accounts/signup.html', {"template_data": template_data})
