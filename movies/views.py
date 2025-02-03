@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from movies.models import Movie
 
 def index(request):
     searchTerm = request.GET.get('search')
