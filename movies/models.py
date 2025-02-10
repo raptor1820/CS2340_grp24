@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Movie(models.Model):
     #Auto-assigned, uses positive integers
@@ -14,3 +15,18 @@ class Movie(models.Model):
 
     def __str__(self):
         return f"{self.name} has id:{self.id}, a price of ${self.price}, and a description: {self.description}."
+
+class Review(models.Model):
+    #Auto-assigned natural
+    id = models.AutoField(primary_key=True)
+    #Actual review
+    comment = models.CharField(max_length=500)
+    #Date of review
+    date = models.DateTimeField(auto_now_add=True)
+    #Movie being reviewed
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    #User who made review
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Review for {self.movie.name} was made on {self.date}."
