@@ -14,7 +14,7 @@ class Movie(models.Model):
     image = models.ImageField(upload_to='movies_images/')
 
     def __str__(self):
-        return f"{self.name} has id:{self.id}, a price of ${self.price}, and a description: {self.description}."
+        return f"{self.name} has id:{self.id}, a price of ${self.price}."
 
 class Review(models.Model):
     #Auto-assigned natural
