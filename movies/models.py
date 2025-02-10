@@ -14,7 +14,7 @@ class Movie(models.Model):
     image = models.ImageField(upload_to='movies_images/')
 
     def __str__(self):
-        return f"{self.name} has id:{self.id}, a price of ${self.price}, and a description: {self.description}."
+        return f"{self.name}"
 
 class Review(models.Model):
     #Auto-assigned natural
@@ -29,4 +29,4 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Review for {self.movie.name} was made on {self.date}."
+        return f"{self.user.username} reviewed {self.movie.name}"
