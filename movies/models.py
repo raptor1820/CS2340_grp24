@@ -29,4 +29,4 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Review for {self.movie.name} was made on {self.date}."
+        return f"{self.user.username} reviewed {self.movie.name}"
