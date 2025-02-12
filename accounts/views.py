@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 
+
 # need to make home app, redirect there on correct form.
 
 def sign_up(request):
@@ -31,6 +32,8 @@ def login(request):
     if request.method == 'GET':
         return render(request, 'accounts/login.html',{'template_data': template_data})
     elif request.method == 'POST':
+        next = request.GET.get('next')
+        
         user = authenticate(
             request,
             username=request.POST['username'],
@@ -41,7 +44,10 @@ def login(request):
             return render(request, 'accounts/login.html',{'template_data': template_data})
         else:
             user_login(request, user)
+            if next=='/cart/purchase/':
+                return redirect('cart.index')
             return redirect('home.index')
+        
 
 
 @login_required
