@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     searchTerm = request.GET.get('search')
     if searchTerm:
-        movies = Movie.objects.filter(name_icontains=searchTerm)
+        movies = Movie.objects.filter(name__icontains=searchTerm)
     else:
         movies = Movie.objects.all()
 
@@ -47,8 +47,8 @@ def createReview(request, id):
         return redirect('movies.show', id=id)
 
 @login_required
-def editReview(request, id, reviewId):
-    review = get_object_or_404(Review, id=reviewId)
+def editReview(request, id, review_id):
+    review = get_object_or_404(Review, id=review_id)
     #If user trying to edit is not the user who made the review
     #send them back to the movie page
     if request.user != review.user:
@@ -60,7 +60,7 @@ def editReview(request, id, reviewId):
         return render(request, 'movies/edit_review.html', {'template_data': templateData})
     #If edit is not blank, update it
     elif request.method == 'POST' and request.POST['comment'] != '':
-        review = Review.objects.get(id=reviewId)
+        review = Review.objects.get(id=review_id)
         review.comment = request.POST['comment']
         review.save()
         return redirect('movies.show', id=id)
@@ -69,7 +69,7 @@ def editReview(request, id, reviewId):
         return redirect('movies.show', id=id)
 
 @login_required
-def deleteReview(request, id, reviewId):
-    review = get_object_or_404(Review, id = reviewId, user = request.user)
+def deleteReview(request, id, review_id):
+    review = get_object_or_404(Review, id = review_id, user = request.user)
     review.delete()
     return redirect('movies.show', id=id)
