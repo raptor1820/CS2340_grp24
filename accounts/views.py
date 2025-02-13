@@ -4,10 +4,6 @@ from django.contrib.auth import login as user_login, logout as user_logout, auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-
-
-# need to make home app, redirect there on correct form.
-
 def sign_up(request):
     template_data = {}
     template_data['title'] = 'Sign Up'
