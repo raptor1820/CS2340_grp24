@@ -10,8 +10,8 @@ class Movie(models.Model):
     price = models.IntegerField()
     #Text field, no limit
     description = models.TextField()
-    #Image
-    image = models.ImageField(upload_to='movies_images/')
+    #Image url
+    image = models.URLField(max_length= 500)
 
     def __str__(self):
         return f"{self.name}"
