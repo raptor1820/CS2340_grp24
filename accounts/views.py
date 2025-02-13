@@ -5,12 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 def sign_up(request):
-    template_data = {}
-    template_data['title'] = 'Sign Up'
-
     if request.method == 'GET':
-        template_data['form'] = CustomUserCreationForm()
-        return render(request, 'accounts/signup.html', {"template_data": template_data})
+        form = CustomUserCreationForm()
+        return render(request, 'accounts/signup.html', {"form": form})
 
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST, error_class=CustomErrorList)
