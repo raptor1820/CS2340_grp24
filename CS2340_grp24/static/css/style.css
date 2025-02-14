@@ -1,22 +1,26 @@
 .bg-index{
-  background: url("/static/img/background.jpg") no-repeat fixed;
-  background-size: 100% auto;
+  background: url("/static/img/background.jpg") no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 .navbar a.nav-link {
-  color: #FFFEF6 !important;
+  color: white !important;
+}
+.navbar a.nav-link:hover {
+  color: yellow !important;
 }
 .bg-dark {
-  background-color: #2E2E2E !important;
+  background-color: #121212 !important;
 }
 .ms-footer {
-  background-color: #202020;
+  background-color: #121212;
 }
 .ms-footer p {
   color: #7F7F7F;
   font-size: 13px;
 }
 .ms-footer a:hover {
-  color: #6ab43e;
+  color: yellow;
   text-decoration: none;
 }
 .ms-footer-bottom span{
@@ -24,19 +28,71 @@
   line-height: 38px;
 }
 .ms-footer-bottom a {
-  color: #6ab43e;
+  color: yellow;
   text-decoration: none;
 }
 .ms-footer-bottom a:hover {
-  color: #fff;
+  color: white;
 }
-
 .img-card-200 {
   width: fit-content;
   max-height: 200px;
 }
-
 .img-card-400 {
   width: fit-content;
   max-height: 400px;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  margin-top: -100vh;
+}
+.overlay-2 {
+  background: linear-gradient(to right, black, #121212, rgba(0, 0, 0, 0.75));
+  min-height: 105vh;
+  height: 100%;
+  width: 100%;
+  margin-top: -25px;
+  margin-bottom: -25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.landing-text {
+  height: 80vh;
+  justify-content: center;
+  font-size: 50px !important;
+  font-weight: bold;
+}
+.landing-text span, .about-text span {
+  color: yellow;
+}
+.landing-text a {
+  text-decoration: none;
+  color: black;
+  margin: 20px;
+  background-color: yellow;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.about-text {
+  min-height: 80vh;
+  align-items: start;
+  font-size: 50px !important;
+  font-weight: bold;
+  padding-left: 25px;
+  padding-right: 25vw;
+}
+.about-para {
+  font-weight: normal;
+  font-size: 25px;
+  text-align: left;
+  margin-top: 10px;
+  line-height: 45px;
+}
+@media only screen and (orientation: portrait) {
+  .about-text {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
 }

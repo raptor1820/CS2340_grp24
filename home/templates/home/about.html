@@ -1,37 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-<div class="p-3">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-6 mx-auto mb-3">
-        <h2>About</h2>
-        <hr />
-        <p>
-           At Movies Store, we offer a vast digital library
-           that spans across genres, ensuring there's
-           something for every movie lover. Browse our
-           extensive collection of films, including the
-           latest releases, timeless classics, and hidden
-           gems. With just a few clicks, you can rent or
-           purchase your favorite titles and instantly
-           stream them in high-definition quality.
-        </p>
-        <p>
-          Discover the convenience of our digital platform,
-          where you have the flexibility to watch movies
-          on your preferred device, whether it's a smart
-          TV, tablet, or smartphone. With our intuitive
-          search and recommendation features, finding your
-          next movie night pick has never been easier.
-        </p>
-      </div>
-      <div class="col-md-6 mx-auto mb-3 text-center">
-        <img src="{% static 'img/about.jpg' %}"
-             class="max-width-100"
-             alt="about" />
-      </div>
-    </div>
+<header class="masthead bg-index text-white text-center py-4">
+  <div class="overlay-2">
+  <div class="container d-flex flex-column pt-2 about-text">
+    <p>Prepare to be <span>amazed</span></p>
+    <p class="about-para">At Movie Buzz, we are passionate about bringing the world of cinema to your fingertips. 
+      Our online movie store is designed to offer you a seamless and enjoyable experience 
+      when exploring, purchasing, and reviewing your favorite films. Whether you are looking for the 
+      latest blockbuster, a timeless classic, or an indie gem, we have a lot in store for you.</p>
+      <p class="about-para">Movie Buzz is more than just a place to buy movies - it is a community of movie lovers who 
+        share their passion and experiences. Start your journey with us today and discover a world of 
+        entertainment at your convenience.</p>
   </div>
-</div>
+  </div>
+</header>
 {% endblock content %}
