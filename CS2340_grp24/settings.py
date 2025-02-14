@@ -11,12 +11,17 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
+import environ
 from pathlib import Path
-from .app_password import APP_PASSWORD
+
+env = environ.Env(
+    # Set default values and casting
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -138,4 +143,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tanm42324@gmail.com'
-EMAIL_HOST_PASSWORD = APP_PASSWORD
+EMAIL_HOST_PASSWORD = env('APP_PWD')
