@@ -1,12 +1,11 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <div class="p-3">
-    <div class="container">
+    <div class="container show-container">
         <div class="row mt-3">
             <div class="col-md-6 mx-auto mb-3">
-                <h2>{{ template_data.movie.name }}</h2>
-                <hr />
-                <p><b>Description:</b> {{ template_data.movie.description }}</p>
-                <p><b>Price:</b> ${{ template_data.movie.price }}</p>
+                <h2 class="movie-name">{{ template_data.movie.name }}</h2>
+                <p>{{ template_data.movie.description }}</p>
+                <p class="price"><b>Price:</b> ${{ template_data.movie.price }}</p>
                 <p class="card-text">
           <form method="post"
             action="{% url 'cart.add' template_data.movie.id %}">
@@ -14,29 +13,28 @@
               {% csrf_token %}
               <div class="col-auto">
                 <div class="input-group col-auto">
-                  <div class="input-group-text">Quantity
+                  <div class="input-group-text search-box">Quantity
                     </div>
                   <input type="number" min="1" max="10"
-                    class="form-control quantity-input"
+                    class="form-control quantity-input search-box-2"
                     name="quantity" value="1">
                 </div>
               </div>
               <div class="col-auto">
-                <button class="btn bg-dark text-white"
+                <button class="btn movie-button"
                   type="submit">Add to cart</button>
               </div>
             </div>
           </form>
         </p>
-                <h2>Reviews</h2>
-                <hr />
+                <h2 class="reviews-heading">Reviews</h2>
                 <ul class="list-group">
                     {% for review in template_data.reviews %}
-                    <li class="list-group-item pb-3 pt-3">
+                    <li class="list-group-item pb-3 pt-3 review-card">
                         <h5 class="card-title">
                             Review by {{ review.user.username }}
                         </h5>
-                        <h6 class="card-subtitle mb-2 text-muted">
+                        <h6 class="card-subtitle mb-2">
                             {{ review.date }}
                         </h6>
                         <p class="card-text">{{ review.comment }}</p>
@@ -59,7 +57,7 @@
                 <div class="container mt-4">
                     <div class="row justify-content-center">
                         <div class="col-12">
-                            <div class="card shadow p-3 mb-4 rounded">
+                            <div class="card shadow p-3 mb-4 rounded review-card">
                                 <div class="card-body">
                                     <b class="text-start">Create a review</b
                                     ><br /><br />
@@ -80,7 +78,7 @@
                                         <div class="text-center">
                                             <button
                                                 type="submit"
-                                                class="btn bg-dark text-white">
+                                                class="btn bg-dark text-white submit-btn">
                                                 Add Review
                                             </button>
                                         </div>

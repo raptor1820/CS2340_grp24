@@ -96,3 +96,62 @@
     padding-right: 10vw;
   }
 }
+.footer-title {
+  color: yellow !important;
+}
+.footer-link {
+  margin-bottom: 10px;
+}
+.search-line {
+  justify-content: right;
+}
+.main-body {
+  background: #121212
+}
+.movie-card {
+  background-color: #121212;
+  border: 3px solid yellow;
+  margin-bottom: 20px;
+}
+.movie-button {
+  background-color: yellow !important;
+  color: black;
+  font-weight: bold;
+}
+.movie-button:hover {
+  color: black;
+}
+.search-box {
+  background-color: #121212;
+  color: white;
+}
+.show-container {
+  color: white;
+}
+.movie-name {
+  margin-bottom: 30px;
+}
+.reviews-heading {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.price {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.review-card {
+  background-color: black;
+  color: white;
+  border: 3px solid yellow;
+}
+.btn-primary, .btn-primary:hover, .submit-btn, .submit-btn:hover {
+  background-color: yellow !important;
+  color: black !important;
+  font-weight: bold;
+  border: none;
+}
+.btn-danger, .btn-danger:hover {
+  color: black;
+  font-weight: bold;
+  border: none;
+}
