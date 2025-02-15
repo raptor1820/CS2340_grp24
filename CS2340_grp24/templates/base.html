@@ -74,33 +74,37 @@
             </div>
         </nav>
         <!-- Header -->
-        <div>{% block content %} {% endblock content %}</div>
+        <div class="main-body">{% block content %} {% endblock content %}</div>
         <!-- Footer -->
         <section class="p-3 ms-footer d-none d-md-block">
             <div class="container">
                 <div class="row mt-3 text-white">
                     <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-4">
-                        <b>MOVIE BUZZ</b>
+                        <b class="footer-title">MOVIE BUZZ</b>
                         <hr />
                         <p>
-                            Welcome to Movies Store, your premier online
-                            destination for a cinematic adventure like no other!
-                            Dive into the world of movies from the comfort of
-                            your own home with our user- friendly and immersive
-                            online movie store.
+                            Movie Buzz is more than just a place to buy movies - it is a community of movie lovers who 
+                            share their passion and experiences. Start your journey with us today and discover a world of 
+                            entertainment at your convenience.
                         </p>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-                        <b>LINKS</b>
+                        <b class="footer-title">LINKS</b>
                         <hr />
                         <p>
-                            <a class="nav-link" href="{% url 'home.about' %}">
+                            <a class="nav-link footer-link" href="{% url 'home.about' %}">
                                 About
+                            </a>
+                            <a class="nav-link footer-link" href="{% url 'movies.index' %}">
+                                Movies
+                            </a>
+                            <a class="nav-link footer-link" href="{% url 'cart.index' %}">
+                                Cart
                             </a>
                         </p>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-                        <b>CONTACT</b>
+                        <b class="footer-title">CONTACT</b>
                         <hr />
                         <p>
                             <i class="fas fa-home me-2"></i>

@@ -1,40 +1,7 @@
 from movies.models import Movie, Review
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from pathlib import Path
-import requests
-import environ
-import os
-#dummy change
-IMAGE_BASE_PATH = "https://image.tmdb.org/t/p/w500"
-BASE_DIR = Path(__file__).resolve().parent.parent
-First = True
 
-env = environ.Env(
-    # Set default values and casting
-    DEBUG=(bool, False)
-)
-
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
-def populate_database():
-    url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
-
-    headers = {
-        "accept": "application/json",
-        "Authorization": env('AUTHENTICATION')
-    }
-
-    response = requests.get(url, headers=headers)
-    response = response.json()
-
-    for i in response["results"]:
-        movie = Movie()
-        movie.price = 10
-        movie.name = i['title']
-        movie.description = i['overview']
-        movie.image = IMAGE_BASE_PATH + i['poster_path']
-        movie.save()
 
 #Renders the movies/index.html template
 def index(request):
