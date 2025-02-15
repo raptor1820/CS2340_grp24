@@ -39,7 +39,7 @@ def login(request):
             user_login(request, user)
             if next=='/cart/purchase/':
                 return redirect('cart.index')
-            return redirect('home.index')
+            return redirect('movies.index')
         
 
 
