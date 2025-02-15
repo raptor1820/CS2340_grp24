@@ -31,10 +31,11 @@ class Command(BaseCommand):
         response = response.json()
 
         for i in response["results"]:
-            movie = Movie()
-            movie.price = 10
-            movie.name = i['title']
-            movie.description = i['overview']
-            movie.image = IMAGE_BASE_PATH + i['poster_path']
-            movie.save()
+            if(i['adult'] == False):
+                movie = Movie()
+                movie.price = 10
+                movie.name = i['title']
+                movie.description = i['overview']
+                movie.image = IMAGE_BASE_PATH + i['poster_path']
+                movie.save()
         self.stdout.write(self.style.SUCCESS('Population done.'))
