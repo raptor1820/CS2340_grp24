@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<div class="p-3">
+<div class="p-3 fix-min-ht">
     <div class="container">
         <div class="row mt-3">
             <div class="col mx-auto mb-3">
-                <h2>Purchase Completed</h2>
+                <h2 class="text-white">Purchase Completed</h2>
                 <hr />
-                <p>
-                    Congratulations, purchase completed. Order number is:
+                <p class="text-white">
+                    Congratulations, you have completed your purchase. Your order number is:
                     <b>#{{ template_data.order_id }}</b>
                 </p>
             </div>

@@ -1,10 +1,9 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
-<p></p>
-<div class="p-3">
+<div class="p-3 fix-min-ht">
     <div class="container">
         <div class="row mt-3">
             <div class="col mx-auto mb-3">
-                <h2>Shopping Cart</h2>
+                <h2 class="text-white">Shopping Cart</h2>
                 <hr />
             </div>
         </div>
@@ -12,19 +11,19 @@
             <table class="table table-bordered table-striped text-center">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
+                        <th scope="col" class="text-white bg-dark">ID</th>
+                        <th scope="col" class="text-white bg-dark">Name</th>
+                        <th scope="col" class="text-white bg-dark">Price</th>
+                        <th scope="col" class="text-white bg-dark">Quantity</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for movie in template_data.movies_in_cart %}
                     <tr>
-                        <td>{{ movie.id }}</td>
-                        <td>{{ movie.name }}</td>
-                        <td>${{ movie.price }}</td>
-                        <td>{{ movie.quantity }}</td>
+                        <td class="text-white bg-dark">{{ movie.id }}</td>
+                        <td class="text-white bg-dark">{{ movie.name }}</td>
+                        <td class="text-white bg-dark">${{ movie.price }}</td>
+                        <td class="text-white bg-dark">{{ movie.quantity }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -32,18 +31,18 @@
         </div>
         <div class="row">
             <div class="text-end">
-                <a class="btn btn-outline-secondary mb-2"
-                    ><b>Total to pay:</b> ${{ template_data.cart_total }}</a
+                <span class="text-white total-to-pay"
+                    ><b>Total to pay:</b> ${{ template_data.cart_total }}</span
                 >
                 {% if template_data.movies_in_cart|length > 0 %}
                 <a
                     href="{% url 'cart.purchase' %}"
-                    class="btn bg-dark text-white mb-2"
+                    class="btn mb-2 btn-primary margin-left-right"
                     >Purchase
                 </a>
                 <a href="{% url 'cart.clear' %}">
                     <button class="btn btn-danger mb-2">
-                        Remove all movies from Cart
+                        Empty Cart
                     </button>
                 </a>
                 {% endif %}
