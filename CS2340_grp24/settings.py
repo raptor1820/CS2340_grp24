@@ -34,7 +34,7 @@ APP_PASSWORD = env("APP_PWD")
 SECRET_KEY = 'django-insecure-w&)kgad5xyi)jhv$&qb(vyv6(2-*i3x_7i3d^43##^)mguw=-b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
