@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-w&)kgad5xyi)jhv$&qb(vyv6(2-*i3x_7i3d^43##^)mguw=-b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -101,6 +101,7 @@ else:
     DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
+        default='sqlite:///db.sqlite3',
         conn_max_age=600
     )
 }
