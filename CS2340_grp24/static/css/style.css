@@ -155,3 +155,23 @@
   font-weight: bold;
   border: none;
 }
+.background-black {
+  background-color: black;
+  border: 2px solid yellow;
+}
+.fix-min-ht {
+  min-height: 100vh;
+}
+.total-to-pay {
+  border: 1px solid white;
+  padding: 7px 15px;
+  border-radius: 10px;
+}
+.margin-left-right {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.fix-btn {
+  padding: 7px 15px;
+  border-radius: 10px;
+}
